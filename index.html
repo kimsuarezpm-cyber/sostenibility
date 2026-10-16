@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard · Lineamientos de Comunicación y Sostenibilidad (AW-GOB-LI-01)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF0EA; --panel:#FFFFFF; --ink:#1C2A22; --muted:#5E6E64; --line:#D3DAD1;
+  --amaranth:#8A2C4F; --amaranth-soft:#F3E3E9;
+  --maize:#B9860F; --maize-soft:#F7EDD2;
+  --lake:#2F6475; --lake-soft:#DDEBEF;
+  --moss:#3D6B47; --moss-soft:#E0EDE2;
+  --no:#A33A2C; --no-soft:#F6E2DE;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#141B17; --panel:#1C2620; --ink:#E6ECE6; --muted:#9FB0A5; --line:#2E3B33;
+    --amaranth:#E07FA3; --amaranth-soft:#3A2230;
+    --maize:#E6BC55; --maize-soft:#3A3120;
+    --lake:#7FBCCF; --lake-soft:#1D3239;
+    --moss:#8CC79A; --moss-soft:#1F3426;
+    --no:#F08C7C; --no-soft:#3D2420;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141B17; --panel:#1C2620; --ink:#E6ECE6; --muted:#9FB0A5; --line:#2E3B33;
+  --amaranth:#E07FA3; --amaranth-soft:#3A2230;
+  --maize:#E6BC55; --maize-soft:#3A3120;
+  --lake:#7FBCCF; --lake-soft:#1D3239;
+  --moss:#8CC79A; --moss-soft:#1F3426;
+  --no:#F08C7C; --no-soft:#3D2420;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 64px}
+h1,h2,h3{margin:0;line-height:1.15}
+h2{font-size:1.45rem;font-weight:700;letter-spacing:-.01em}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+.serif{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-style:italic}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--lake);outline-offset:2px;border-radius:6px}
+
+/* Header */
+header.top{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;padding-bottom:22px;border-bottom:2px solid var(--ink)}
+.code{display:inline-block;font-weight:700;font-size:.9rem;color:var(--moss);margin-bottom:10px}
+h1{font-size:clamp(1.9rem,4.4vw,3.1rem);font-weight:800;letter-spacing:-.025em;max-width:18ch}
+.meta{display:grid;grid-template-columns:auto auto;gap:4px 18px;font-size:.92rem}
+.meta dt{color:var(--muted)}
+.meta dd{margin:0;font-weight:500}
+.pill{display:inline-block;padding:1px 10px;border-radius:99px;font-size:.85rem;font-weight:500}
+.pill.prog{background:var(--lake-soft);color:var(--lake)}
+.pill.gov{background:var(--moss-soft);color:var(--moss)}
+
+.approvals{display:flex;flex-wrap:wrap;gap:0;margin-top:18px;font-size:.9rem}
+.approvals .step{padding:8px 14px;border:1px solid var(--line);background:var(--panel);position:relative}
+.approvals .step:first-child{border-radius:10px 0 0 10px}
+.approvals .step:last-child{border-radius:0 10px 10px 0}
+.approvals .step + .step{border-left:none}
+.approvals .role{display:block;color:var(--muted);font-size:.78rem}
+
+section{margin-top:44px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.sec-head .ref{color:var(--muted);font-size:.85rem}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+
+/* Purpose + objectives */
+.intro{display:grid;grid-template-columns:1.1fr 1fr;gap:20px}
+.purpose p + p{margin-top:10px}
+.purpose .big{font-size:1.2rem;line-height:1.45;margin-bottom:12px}
+.obj-general{font-size:1.1rem;font-weight:500;margin:6px 0 16px}
+.obj-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.obj-list li{border-left:3px solid var(--moss);padding:4px 0 4px 12px;font-size:.95rem}
+
+/* The filter (hero element) */
+.filter{background:var(--ink);color:var(--bg);border-radius:20px;padding:28px;display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:stretch}
+.filter h2{color:var(--bg);font-size:1.7rem}
+.filter .lede{color:color-mix(in srgb,var(--bg) 75%,transparent);margin:8px 0 20px;max-width:52ch}
+.q{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:14px 0;border-top:1px solid color-mix(in srgb,var(--bg) 22%,transparent)}
+.q:last-of-type{border-bottom:1px solid color-mix(in srgb,var(--bg) 22%,transparent)}
+.q span{font-size:1.05rem}
+.toggle{display:flex;border:1px solid color-mix(in srgb,var(--bg) 40%,transparent);border-radius:99px;overflow:hidden}
+.toggle button{background:none;border:0;padding:7px 16px;cursor:pointer;color:var(--bg);font-weight:500}
+.toggle button[aria-pressed="true"].yes{background:var(--moss-soft);color:var(--moss)}
+.toggle button[aria-pressed="true"].no{background:var(--no-soft);color:var(--no)}
+.verdict{border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;gap:8px;transition:background .25s ease,color .25s ease;background:color-mix(in srgb,var(--bg) 10%,transparent)}
+.verdict .v-title{font-size:2rem;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.verdict.ok{background:var(--moss-soft);color:var(--moss)}
+.verdict.bad{background:var(--no-soft);color:var(--no)}
+.verdict.wait .v-title{color:var(--bg)}
+.verdict.wait p{color:color-mix(in srgb,var(--bg) 70%,transparent)}
+
+/* Frentes */
+.stats{display:flex;flex-wrap:wrap;gap:28px;margin-bottom:18px}
+.stat b{display:block;font-size:2.2rem;font-weight:800;line-height:1}
+.stat span{font-size:.88rem;color:var(--muted)}
+.bar{display:flex;height:12px;border-radius:99px;overflow:hidden;margin-bottom:22px;max-width:520px}
+.bar i{display:block}
+.legend{display:flex;gap:16px;font-size:.85rem;color:var(--muted);margin:-12px 0 22px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+
+.frentes{display:grid;grid-template-columns:300px 1fr;gap:18px}
+.tabs{display:flex;flex-direction:column;gap:6px}
+.tab{text-align:left;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:center}
+.tab .n{font-weight:800;color:var(--muted);font-size:.9rem}
+.tab .t{font-weight:600;line-height:1.25}
+.tab .cl{grid-column:2;font-size:.8rem;font-weight:500}
+.tab[data-cl="Estratégico"] .cl{color:var(--amaranth)}
+.tab[data-cl="Relevante"] .cl{color:var(--maize)}
+.tab[aria-selected="true"]{border-color:var(--ink);box-shadow:inset 4px 0 0 var(--ink)}
+.detail{padding:24px}
+.detail .cls{display:inline-block;font-size:.85rem;font-weight:600;padding:2px 12px;border-radius:99px;margin-bottom:10px}
+.detail h3{font-size:1.6rem;font-weight:800;letter-spacing:-.015em}
+.detail .role{font-size:1.25rem;margin:12px 0 22px;max-width:46ch}
+.yn{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.yn > div{border-radius:12px;padding:16px}
+.yn .si{background:var(--moss-soft)}
+.yn .nn{background:var(--no-soft)}
+.yn h4{margin:0 0 8px;font-size:.95rem}
+.yn .si h4{color:var(--moss)}
+.yn .nn h4{color:var(--no)}
+.yn ul{margin:0;padding-left:18px}
+.yn li{margin:4px 0}
+
+/* Matrix */
+.matrix{overflow-x:auto;margin-top:18px}
+.matrix table{border-collapse:collapse;width:100%;min-width:640px;font-size:.9rem}
+.matrix th,.matrix td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.matrix th{font-weight:600;color:var(--muted);font-size:.82rem}
+.matrix td.c{text-align:center;font-weight:700}
+
+/* Two-up blocks */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.checks{list-style:none;padding:0;margin:12px 0}
+.checks li{display:flex;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.checks li::before{content:"";flex:0 0 18px;height:18px;border-radius:5px;border:2px solid var(--lake);margin-top:3px}
+.note{font-size:.9rem;color:var(--muted);background:var(--bg);padding:10px 12px;border-radius:10px}
+.planet .yn{grid-template-columns:1fr}
+.planet .quote{font-size:1.15rem;margin-top:14px}
+
+/* ODS flow */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:6px}
+.fstep{padding:16px;border:1px solid var(--line);background:var(--panel);position:relative}
+.fstep:first-child{border-radius:12px 0 0 12px}
+.fstep:last-child{border-radius:0 12px 12px 0}
+.fstep + .fstep{border-left:none}
+.fstep .k{font-size:.8rem;font-weight:700;color:var(--lake)}
+.fstep b{display:block;margin:4px 0}
+.fstep p{font-size:.88rem;color:var(--muted)}
+.fstep:not(:last-child)::after{content:"";position:absolute;right:-9px;top:50%;width:16px;height:16px;background:var(--panel);border-top:1px solid var(--line);border-right:1px solid var(--line);transform:translateY(-50%) rotate(45deg);z-index:1}
+.uses{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.use{border-radius:12px;padding:14px}
+.use.main{background:var(--lake-soft)}
+.use.cond{background:var(--maize-soft)}
+.use.never{background:var(--no-soft)}
+.use h4{margin:0 0 4px;font-size:.95rem}
+.use.main h4{color:var(--lake)}
+.use.cond h4{color:var(--maize)}
+.use.never h4{color:var(--no)}
+.use p{font-size:.9rem}
+.state{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.state .pill{background:var(--panel);border:1px solid var(--line);padding:6px 14px}
+
+/* Lanes */
+.lanes{display:grid;grid-template-columns:1fr 140px 1fr;gap:0;align-items:stretch}
+.lane{padding:20px;border-radius:14px}
+.lane.sost{background:var(--moss-soft)}
+.lane.mkt{background:var(--lake-soft)}
+.lane h3{margin-bottom:4px}
+.lane.sost h3{color:var(--moss)}
+.lane.mkt h3{color:var(--lake)}
+.lane h4{margin:14px 0 6px;font-size:.88rem;color:var(--muted);font-weight:600}
+.lane ul{margin:0;padding-left:18px}
+.lane li{margin:3px 0;font-size:.94rem}
+.bridge{display:flex;flex-direction:column;justify-content:center;gap:14px;padding:0 10px;text-align:center;font-size:.82rem;color:var(--muted)}
+.bridge div{border-top:2px solid var(--ink);padding-top:6px;position:relative}
+.bridge .r::after,.bridge .l::after{content:"";position:absolute;top:-6px;width:8px;height:8px;border-top:2px solid var(--ink);border-right:2px solid var(--ink)}
+.bridge .r::after{right:0;transform:rotate(45deg)}
+.bridge .l::after{left:0;transform:rotate(-135deg)}
+.maturity{display:flex;margin-top:16px;border-radius:10px;overflow:hidden;font-size:.88rem;font-weight:600}
+.maturity span{flex:1;padding:10px;text-align:center}
+.maturity span:nth-child(1){background:var(--moss);color:var(--panel)}
+.maturity span:nth-child(2){background:var(--maize);color:var(--panel)}
+.maturity span:nth-child(3){background:var(--line);color:var(--ink)}
+
+.assets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
+.asset{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--panel)}
+.asset b{display:block;font-size:1.05rem}
+.asset span{font-size:.85rem;color:var(--muted)}
+
+footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;font-size:.85rem;color:var(--muted)}
+.themebtn{background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:6px 14px;cursor:pointer}
+
+@media (max-width:900px){
+  header.top,.intro,.filter,.frentes,.two{grid-template-columns:1fr}
+  .tabs{flex-direction:row;overflow-x:auto;padding-bottom:4px}
+  .tab{min-width:210px}
+  .flow{grid-template-columns:1fr 1fr}
+  .fstep{border-radius:0!important;border-left:1px solid var(--line)!important}
+  .fstep::after{display:none}
+  .uses,.assets{grid-template-columns:1fr}
+  .lanes{grid-template-columns:1fr}
+  .bridge{flex-direction:row;padding:14px 0}
+  .bridge div{flex:1}
+}
+@media (max-width:560px){
+  .obj-list,.yn{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .filter{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div>
+    <span class="code">AW-GOB-LI-01 · Plan de gobernanza</span>
+    <h1>Lineamientos de comunicación corporativa y sostenibilidad</h1>
+    <div class="approvals" aria-label="Cadena de aprobación">
+      <div class="step"><span class="role">Actualizado · Coord. Proyectos</span>Kimberly Suárez</div>
+      <div class="step"><span class="role">Revisado · Gerencia Comercial</span>Margarita Tapia</div>
+      <div class="step"><span class="role">Aprobado · Gerencia General</span>Felipe Guevara</div>
+    </div>
+  </div>
+  <dl class="meta">
+    <dt>Versión</dt><dd>1.0</dd>
+    <dt>Fecha</dt><dd>22 ene 2026</dd>
+    <dt>Estado</dt><dd><span class="pill prog">En progreso</span></dd>
+    <dt>Tipo</dt><dd><span class="pill gov">Governance · Plan</span></dd>
+    <dt>Esfuerzo</dt><dd>Grande</dd>
+    <dt>Responsable</dt><dd>Kim Suárez</dd>
+  </dl>
+</header>
+
+<!-- 1 + 4 -->
+<section class="intro">
+  <div class="card purpose">
+    <div class="sec-head"><h2>Propósito</h2><span class="ref">Sección 1</span></div>
+    <p class="big">Que la comunicación de la empresa refleje con coherencia su identidad, su modelo de negocio y sus compromisos.</p>
+    <p class="muted">Parte de una estrategia de sostenibilidad ya desarrollada, que fija ejes, prioridades y límites. Estos lineamientos la traducen en un marco común; marketing diseña y ejecuta campañas, formatos, narrativas, audiencias, canales y cronogramas dentro de ese marco.</p>
+  </div>
+  <div class="card">
+    <div class="sec-head"><h2>Objetivos</h2><span class="ref">Sección 4</span></div>
+    <p class="obj-general">Una comunicación consistente, creíble y alineada al modelo de sostenibilidad, que fortalezca la confianza y reduzca riesgos reputacionales.</p>
+    <ul class="obj-list">
+      <li>Traducir los temas materiales en narrativas claras</li>
+      <li>Ordenar el discurso en todos los canales</li>
+      <li>Evitar sobrepromesas y mensajes oportunistas</li>
+      <li>Facilitar reporte, trazabilidad y rendición de cuentas</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2: Filter -->
+<section class="filter" aria-labelledby="f-title">
+  <div>
+    <h2 id="f-title">¿Se puede comunicar este mensaje?</h2>
+    <p class="lede">El principio rector: todo mensaje debe superar las tres preguntas. Respóndelas para un mensaje concreto.</p>
+    <div class="q" data-q="0"><span>¿Está alineado con un tema material identificado?</span>
+      <div class="toggle" role="group" aria-label="Pregunta 1"><button class="yes" aria-pressed="false">Sí</button><button class="no" aria-pressed="false">No</button></div></div>
+    <div class="q" data-q="1"><span>¿Refleja una práctica, decisión o proceso real?</span>
+      <div class="toggle" role="group" aria-label="Pregunta 2"><button class="yes" aria-pressed="false">Sí</button><button class="no" aria-pressed="false">No</button></div></div>
+    <div class="q" data-q="2"><span>¿El nivel de promesa es coherente con la madurez del tema?</span>
+      <div class="toggle" role="group" aria-label="Pregunta 3"><button class="yes" aria-pressed="false">Sí</button><button class="no" aria-pressed="false">No</button></div></div>
+  </div>
+  <div class="verdict wait" id="verdict" aria-live="polite">
+    <div class="v-title">Responde las tres preguntas</div>
+    <p>El resultado aparece aquí.</p>
+  </div>
+</section>
+
+<!-- 3 + 5: Frentes -->
+<section aria-labelledby="fr-title">
+  <div class="sec-head"><h2 id="fr-title">Frentes de comunicación según materialidad</h2><span class="ref">Secciones 3 y 5</span></div>
+  <p class="muted" style="max-width:70ch;margin-bottom:18px">No son campañas ni slogans: son pilares narrativos para toda la comunicación institucional, comercial y de marca. Marketing los traduce a formatos, campañas y contenidos.</p>
+  <div class="stats">
+    <div class="stat"><b>6</b><span>frentes materiales</span></div>
+    <div class="stat"><b style="color:var(--amaranth)">4</b><span>estratégicos</span></div>
+    <div class="stat"><b style="color:var(--maize)">2</b><span>relevantes</span></div>
+    <div class="stat"><b style="color:var(--moss)">19</b><span>mensajes permitidos</span></div>
+    <div class="stat"><b style="color:var(--no)">14</b><span>mensajes no permitidos</span></div>
+  </div>
+  <div class="bar" aria-hidden="true"><i style="flex:4;background:var(--amaranth)"></i><i style="flex:2;background:var(--maize)"></i></div>
+  <div class="legend"><span style="--c:var(--amaranth)">Estratégico</span><span style="--c:var(--maize)">Relevante</span></div>
+
+  <div class="frentes">
+    <div class="tabs" role="tablist" id="tabs" aria-label="Frentes"></div>
+    <div class="card detail" role="tabpanel" id="panel"></div>
+  </div>
+
+  <div class="matrix card" style="padding:8px 8px 0">
+    <table>
+      <thead><tr><th>Frente</th><th>Clasificación</th><th>Rol</th><th style="text-align:center">Sí</th><th style="text-align:center">No</th></tr></thead>
+      <tbody id="mtx"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 6 + 7 -->
+<section class="two">
+  <div class="card">
+    <div class="sec-head"><h2>Alianzas, proyectos e influencers</h2><span class="ref">Sección 6</span></div>
+    <p>Toda alianza, proyecto externo o programa con influencers ligado a sostenibilidad o ESG pasa por una <strong>alineación previa obligatoria</strong> que valida:</p>
+    <ul class="checks">
+      <li>Coherencia con los temas materiales</li>
+      <li>Riesgos reputacionales asociados a sostenibilidad</li>
+      <li>Consistencia del mensaje con los compromisos ESG</li>
+    </ul>
+    <p class="note">Quedan fuera las colaboraciones comerciales, promocionales o no vinculadas a sostenibilidad.</p>
+  </div>
+  <div class="card planet">
+    <div class="sec-head"><h2>1% for the Planet</h2><span class="ref">Sección 7</span></div>
+    <p>Se comunica como parte integral del modelo de sostenibilidad, no como acción promocional.</p>
+    <div class="yn" style="margin-top:14px">
+      <div class="si"><h4>Se comunica</h4><ul>
+        <li>Por qué se eligieron las organizaciones aliadas</li>
+        <li>Cómo se gestiona y da seguimiento al aporte</li>
+        <li>Cómo se integra al modelo de sostenibilidad</li>
+        <li>Avances y aprendizajes de la alianza</li></ul></div>
+      <div class="nn"><h4>No se comunica</h4><ul>
+        <li>Donaciones sin contexto ni trazabilidad</li>
+        <li>Mensajes emocionales sin datos de impacto</li>
+        <li>El aporte como reclamo comercial</li></ul></div>
+    </div>
+    <p class="quote serif">Proceso e impacto, no visibilidad ni reconocimiento.</p>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="card" aria-labelledby="ods-title">
+  <div class="sec-head"><h2 id="ods-title">Marcos de referencia: GRI y ODS</h2><span class="ref">Sección 8</span></div>
+  <p class="muted" style="max-width:72ch;margin-bottom:14px">Usar GRI, ODS o metas globales sin criterio técnico ni evidencia lleva a comunicación superficial o greenwashing. La empresa adopta un uso riguroso.</p>
+  <div class="state">
+    <span class="pill">Desempeño reportado bajo GRI</span>
+    <span class="pill">Contribución a ODS gestionada de forma indirecta</span>
+    <span class="pill">ODS no son un eje comunicacional propio</span>
+  </div>
+  <h3 style="margin-bottom:10px">Proceso de mapeo y verificación de contribución a ODS</h3>
+  <div class="flow">
+    <div class="fstep"><span class="k">Activación</span><b>Acciones implementadas y KPIs definidos</b><p>El proceso arranca solo con acciones en marcha.</p></div>
+    <div class="fstep"><span class="k">Seguimiento</span><b>Revisiones internas semestrales</b><p>Gestionadas desde sostenibilidad.</p></div>
+    <div class="fstep"><span class="k">Cierre</span><b>Validación al cierre del período</b><p>Contribuciones efectivas, medibles y comprobadas.</p></div>
+    <div class="fstep"><span class="k">Resultado</span><b>Impactos mapeados a los ODS</b><p>Impactos reales vinculados a cada ODS.</p></div>
+  </div>
+  <div class="uses">
+    <div class="use main"><h4>Uso principal</h4><p>Reporte, toma de decisiones y diálogo con inversores y aliados estratégicos.</p></div>
+    <div class="use cond"><h4>Uso condicionado</h4><p>Comunicación institucional, solo con evidencia suficiente que lo respalde.</p></div>
+    <div class="use never"><h4>Fuera de alcance</h4><p>Publicidad y comunicación promocional.</p></div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section aria-labelledby="rel-title">
+  <div class="sec-head"><h2 id="rel-title">Sostenibilidad y Marketing</h2><span class="ref">Sección 9</span></div>
+  <div class="lanes">
+    <div class="lane sost">
+      <h3>Sostenibilidad entrega</h3>
+      <ul>
+        <li>Frentes claros y priorizados</li>
+        <li>Mensajes permitidos y no permitidos por frente</li>
+        <li>Nivel de madurez de cada tema</li>
+        <li>Límites narrativos contra sobrepromesas</li>
+      </ul>
+      <div class="maturity" aria-label="Niveles de madurez"><span>Implementado</span><span>En proceso</span><span>Futuro</span></div>
+    </div>
+    <div class="bridge" aria-hidden="true">
+      <div class="r">Marco y límites</div>
+      <div class="l">Propuestas para revisión</div>
+    </div>
+    <div class="lane mkt">
+      <h3>Marketing aporta</h3>
+      <ul>
+        <li>Propuestas creativas alineadas a los frentes</li>
+        <li>Formatos y campañas por canal</li>
+        <li>Storytelling y lenguaje cercano</li>
+        <li>Propuestas de cronograma y secuencia</li>
+      </ul>
+      <h4>Regla de trabajo</h4>
+      <p style="font-size:.94rem">Autonomía creativa, con revisión frente a los ejes de sostenibilidad para validar coherencia estratégica, narrativa y temporalidad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="card" aria-labelledby="act-title">
+  <div class="sec-head"><h2 id="act-title">Activos de comunicación y roles</h2><span class="ref">Sección 10</span></div>
+  <p class="muted" style="margin-bottom:14px">Activos estructurales: no son campañas, sino la base para que marketing planifique con coherencia.</p>
+  <div class="assets">
+    <div class="asset"><b>Informe de sostenibilidad</b><span>Reporte bajo GRI</span></div>
+    <div class="asset"><b>Sección web de sostenibilidad</b><span>Referencia pública permanente</span></div>
+    <div class="asset"><b>Recursos informativos</b><span>Políticas, avances, reportes</span></div>
+  </div>
+  <div class="two">
+    <div class="lane sost">
+      <h3>Qué entrega sostenibilidad</h3>
+      <ul>
+        <li>Ejes estratégicos y lineamientos de contenido</li>
+        <li>Información validada, datos y mensajes clave</li>
+        <li>Documentos de referencia</li>
+        <li>Actualizaciones según evolucionan los proyectos</li>
+      </ul>
+      <h4>Cuándo</h4>
+      <ul>
+        <li>Según los hitos del cronograma de sostenibilidad</li>
+        <li>Cuando la información alcanza madurez adecuada</li>
+        <li>Antes de activar contenidos sensibles</li>
+      </ul>
+    </div>
+    <div class="lane mkt">
+      <h3>Qué define y ejecuta marketing</h3>
+      <ul>
+        <li>Cronograma de comunicación y publicaciones</li>
+        <li>Formatos, campañas y adaptación por canal</li>
+        <li>Calendarización y secuencia de contenidos</li>
+        <li>Diseño gráfico y piezas visuales, con diseñadores internos o externos</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Control de cambios: v1.0 · 22 de enero de 2026 · Versión inicial del procedimiento / lineamientos · Kimberly Suárez</span>
+  <button class="themebtn" id="themeBtn" type="button">Cambiar tema</button>
+</footer>
+</div>
+
+<script>
+const frentes=[
+ {n:"5.1",t:"Ética, transparencia y anticorrupción",cl:"Estratégico",role:"Marco transversal que define el tono y los límites del discurso corporativo.",
+  si:["Principios éticos y criterios de decisión","Transparencia organizacional","Mecanismos de control y rendición de cuentas"],
+  no:["Declaraciones genéricas sin respaldo","Claims éticos sin procesos asociados"]},
+ {n:"5.2",t:"Gobernanza ESG y gestión de riesgos",cl:"Relevante",role:"Explicar cómo la sostenibilidad se integra en la gestión y no solo en la narrativa.",
+  si:["Cómo se toman decisiones","Cómo se gestionan riesgos ESG","Cómo se priorizan recursos"],
+  no:["Lenguaje técnico sin contexto","Promesas de impacto sin explicar el proceso"]},
+ {n:"5.3",t:"Derechos laborales y condiciones de empleo",cl:"Estratégico",role:"Construir coherencia entre comunicación externa y experiencia interna.",
+  si:["Prácticas laborales reales","Bienestar y desarrollo del equipo","Canales de diálogo interno"],
+  no:["Idealizaciones del ambiente laboral","Beneficios no generalizados"]},
+ {n:"5.4",t:"Comunicación, nutrición y seguridad del consumidor",cl:"Estratégico",role:"Eje crítico de credibilidad y confianza.",
+  si:["Información nutricional clara","Uso responsable de productos","Límites y alcances reales"],
+  no:["Beneficios no comprobados","Mensajes ambiguos o exagerados"]},
+ {n:"5.5",t:"Biodiversidad y cultivos ancestrales",cl:"Estratégico",role:"Poner en valor el origen sin romantizar.",
+  si:["Origen de ingredientes","Relación con territorios","Procesos en construcción"],
+  no:["Impactos no medidos","Narrativas extractivas o folklorizadas"]},
+ {n:"5.6",t:"Diversidad, inclusión y equidad de género",cl:"Relevante",role:"Reflejar prácticas reales, priorizando acciones internas, procesos formativos y aprendizajes del equipo.",
+  si:["Principios y prácticas internas de diversidad, inclusión y equidad","Talleres, espacios formativos y sensibilización con el equipo","Participación del equipo en iniciativas internas de inclusión","Avances concretos, aunque sean parciales o progresivos"],
+  no:["Discursos simbólicos sin sustento operativo","Mensajes de inclusión sin acciones internas que los respalden","Influencers o vocerías externas sin trabajo interno previo y verificable","Campañas que presenten la inclusión como estado alcanzado"]}
+];
+const tabs=document.getElementById('tabs'),panel=document.getElementById('panel'),mtx=document.getElementById('mtx');
+function clsStyle(cl){return cl==="Estratégico"?"background:var(--amaranth-soft);color:var(--amaranth)":"background:var(--maize-soft);color:var(--maize)"}
+function show(i){
+  [...tabs.children].forEach((b,j)=>{b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});
+  const f=frentes[i];
+  panel.innerHTML=`<span class="cls" style="${clsStyle(f.cl)}">${f.cl}</span>
+   <h3>${f.t}</h3><p class="role serif">${f.role}</p>
+   <div class="yn"><div class="si"><h4>Qué se comunica</h4><ul>${f.si.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+   <div class="nn"><h4>Qué no se comunica</h4><ul>${f.no.map(x=>`<li>${x}</li>`).join('')}</ul></div></div>`;
+}
+frentes.forEach((f,i)=>{
+  const b=document.createElement('button');b.className='tab';b.setAttribute('role','tab');b.dataset.cl=f.cl;
+  b.innerHTML=`<span class="n">${f.n}</span><span class="t">${f.t}</span><span class="cl">${f.cl}</span>`;
+  b.onclick=()=>show(i);
+  b.onkeydown=e=>{if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();const k=(i+1)%6;show(k);tabs.children[k].focus()}
+    if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();const k=(i+5)%6;show(k);tabs.children[k].focus()}};
+  tabs.appendChild(b);
+  mtx.insertAdjacentHTML('beforeend',`<tr><td><b>${f.n}</b> ${f.t}</td><td><span class="pill" style="${clsStyle(f.cl)}">${f.cl}</span></td><td class="muted">${f.role}</td><td class="c" style="color:var(--moss)">${f.si.length}</td><td class="c" style="color:var(--no)">${f.no.length}</td></tr>`);
+});
+show(0);
+
+const ans=[null,null,null],v=document.getElementById('verdict');
+document.querySelectorAll('.q').forEach(q=>{
+  const i=+q.dataset.q;
+  q.querySelectorAll('button').forEach(btn=>btn.onclick=()=>{
+    ans[i]=btn.classList.contains('yes');
+    q.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b===btn));
+    render();
+  });
+});
+function render(){
+  if(ans.includes(false)){v.className='verdict bad';v.innerHTML='<div class="v-title">Ajustar o no comunicar</div><p>Al menos una respuesta es negativa. El mensaje debe corregirse antes de salir, o no publicarse.</p>';}
+  else if(ans.every(a=>a===true)){v.className='verdict ok';v.innerHTML='<div class="v-title">Listo para comunicar</div><p>Pasa el filtro. Marketing puede desarrollarlo con autonomía creativa y revisión de coherencia.</p>';}
+  else{v.className='verdict wait';v.innerHTML=`<div class="v-title">Faltan ${ans.filter(a=>a===null).length} respuestas</div><p>El resultado aparece al completar las tres.</p>`;}
+}
+
+const root=document.documentElement;
+document.getElementById('themeBtn').onclick=()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme=dark?'light':'dark';
+  try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+};
+try{const t=localStorage.getItem('theme');if(t)root.dataset.theme=t}catch(e){}
+</script>
+</body>
+</html>
